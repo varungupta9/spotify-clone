@@ -37,6 +37,7 @@
 
 #margin{
     display: none;
+    margin: 3%;
 } 
  #card{
      background-color: black;
@@ -46,3 +47,19 @@
  #body{
      background-color: black;
  }
+
+ #clientId{
+    width: 30%;
+}
+
+#clientKey{
+    width: 30%;
+}
+
+.container{
+    margin: 3%;
+}
+
+li{
+    cursor: pointer;
+}
