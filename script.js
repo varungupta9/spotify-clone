@@ -41,12 +41,10 @@ function generateCode(){
    
     let code = getCode()
     generateAccessToken(code)
-    console.log('refersh')
    window.history.pushState("", "",redirectUri)
 }
 
 function  generateAccessToken(code){
-        console.log(client_id)
         let bodyParams = "grant_type=authorization_code" + "&code="+code + "&redirect_uri=" + encodeURI(redirectUri) + "&client_id=" + client_id + "&client_secret="+client_secret 
         authorization(bodyParams)
 }
@@ -65,7 +63,6 @@ function fetchAccessToken(){
    
     if(this.status==200){
     var data = JSON.parse(this.responseText)
-    console.log(data.access_token)
     access_token = data.access_token
     refresh_token = data.refresh_token
     localStorage.setItem("access_token", access_token)
@@ -84,7 +81,6 @@ function getCode(){
     const queryS = window.location.search
     const urlParams = new URLSearchParams(queryS)
     code = urlParams.get('code')
-    console.log(code)
     return code;
 }
 function showPlaylist() {
@@ -97,17 +93,12 @@ function showPlaylist() {
     res.onload = playListresponse
 }
 
-function showTracks(id ,){
-
-}
 
 function playListresponse (){
     if(this.status==200){
         var data = JSON.parse(this.responseText)
-        console.log(data)
-    
+        document.getElementById('card').innerHTML=""
         data.items.forEach(item => {
-            console.log(item.images[0].url, item.name ,item.tracks.total )
            createCards(item.images[0].url, item.name ,item.tracks.total)
         
         });
