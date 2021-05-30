@@ -97,29 +97,25 @@ function showPlaylist() {
     res.onload = playListresponse
 }
 
+function showTracks(id ,){
+
+}
+
 function playListresponse (){
     if(this.status==200){
         var data = JSON.parse(this.responseText)
         console.log(data)
     
         data.items.forEach(item => {
-            // var img = document.createElement('img')
-            // img.setAttribute('class','card-img')
-            // img.setAttribute('class','card-img')
-            // document.getElementById('card-img').setAttribute("src",item.images[0].url)
-            // document.getElementById('card-title').innerHTML=item.name
-            // document.getElementsByClassName('class-text').innerHTML=data.items[0].tracks.total
-            console.log(item.images[0].url, item.name ,item.tracks.total, )
+            console.log(item.images[0].url, item.name ,item.tracks.total )
            createCards(item.images[0].url, item.name ,item.tracks.total)
-           
-
-
+        
         });
     }
 
 }
 
-function createCards(imgs,h1Value,tracksInfo , td1Value ,td2Value, td3Value,td4Value){
+function createCards(imgs,h1Value,tracksInfo){
 
  var row = document.createElement('div')
  row.setAttribute('class', 'row no-gutters' )
@@ -140,20 +136,7 @@ function createCards(imgs,h1Value,tracksInfo , td1Value ,td2Value, td3Value,td4V
  cardBody.append(h1,p)
  div2.append(div,cardBody)
  row.append(div2)
-//  var tbody = document.createElement('tbody')
-//  var tr = document.createElement('tr')
-//  var td1 = document.createElement('td')
-//  td1.innerHTML=td1Value
-//  var td2 = document.createElement('td')
-//  td2.innerHTML=td2Value
-//  var td3 = document.createElement('td')
-//  td3.innerHTML=td3Value
-//  var td4 = document.createElement('td')
-//  td4.innerHTML=td4Value
-//  tr.append(td1.td2,td3,td4)
-//  tbody.append(tr)
-//  var tble = document.getElementById(table)
-//  tble.append(tbody)
+
  return document.getElementById('card').append(row)
 
 
@@ -170,30 +153,3 @@ function createCards(imgs,h1Value,tracksInfo , td1Value ,td2Value, td3Value,td4V
 
 
 
-
-// const apiHandler = (function(){
-// var clientId ="7ee621cea0f9451e99838ee46b661f21"
-// var clientKey ="c4a82064570048d8b9b9514c2ce414b5"
-
-// const tokenValue = async () =>{
-// const result = await fetch("https://accounts.spotify.com/api/token" , {
-//     method: "POST" ,
-//      headers: {
-//          'content-type' : 'application/x-www-form-urlencoded',
-//          'Authorization': 'Basic' + btoa(clientId + ':'+ clientKey)
-//         },
-//          body :'grant_type=client_credentials'})
-// const data = result.json()
-// console.log(data.access_token)
-// getPlaylist( data.access_token)
-// }
-
-// const getPlaylist = async (token) => {
-// const result = await fetch ("https://api.spotify.com/v1/me/playlists" , { 
-//     method : "GET" ,
-//     headers: {"Authorization" : "Bearer"+ token}})    
-//     const data = result.json()
-//     console.log(data.items);
-// }
-// tokenValue();
-// })();
