@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: rgb(177, 177, 177);
+
+}
+
+#nav{
+    padding: 0;
+    background-color: black
+}
+
+.menu{
+    list-style-type: none;
+}
+.items{
+    margin: 8px;
+}
+
+#leftMenu{
+    background-color: black;
+     
+}
+
+#dropdownMenuButton ,#arrow, #arrow2{
+    background-color: black;
+     border-radius: 23px;
+     border:none
+}
+#upgrade{
+    background-color: black;
+    border-radius: 23px;
+    border:none;
+    margin: 10px;
+}
+
+#margin{
+    display: none;
+} 
+ #card{
+     background-color: black;
+     color: white;
+ }
+
+ #body{
+     background-color: black;
+ }
